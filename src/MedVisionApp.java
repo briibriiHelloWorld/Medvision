@@ -54,6 +54,9 @@ public class MedVisionApp {
         System.out.print("Enter medicine name: ");
         String name = scanner.nextLine();
 
+        MedicineScanner ms = new MedicineScanner(repo);
+        ms.scan(name);
+
         var found = repo.search(m -> m.getName().equalsIgnoreCase(name));
         if (found.isEmpty()) System.out.println("Medicine not found!");
         else {
